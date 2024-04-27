@@ -1,0 +1,21 @@
+.etc_container {
+    background-color: #72452C;
+    padding: 10px;
+    border-radius: 5px; 
+    text-align: center; 
+  }
+  
+  .etc-text {
+    color:white;
+    margin: 0; 
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .etc-period {
+    color: lightgoldenrodyellow; 
+    margin-top:1%;
+    text-decoration: none;
+    font-weight: 200;
+  }
+  

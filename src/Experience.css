@@ -1,0 +1,20 @@
+.experience-container {
+    background-color: #F4DC9C;
+    padding: 10px;
+    border-radius: 5px; 
+    text-align: center; 
+  }
+  
+  .experience-text {
+    color:brown;
+    margin: 0; 
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .experience-link {
+    color: darkorange; 
+    text-decoration: none;
+    font-weight: bold; /* 글자의 두껍기를 설정합니다. */
+  }
+  
