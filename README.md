@@ -11,6 +11,7 @@
 - 경험, contact 요소 재활용 가능
 - experience 부분 경험 요소 링크 첨부 가능
 - contact 요소 추가 가능
+- Recommendation Book 부분 추가 (axios 활용) _ 0506
 
 ##### 아쉬운 부분
 - footer이 없으니 간지가 안남
