@@ -32,11 +32,15 @@ function App() {
         {/*##################헤더###############*/}
           <nav>
               <ul>
-                <li><a href="#about_me">About Me</a></li>
+                {/*<li><a href="#about_me">About Me</a></li>
                 <li><a href="#languages">Languages</a></li>
                 <li><a href="#goal">Goal</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>*/}
+                
+                <li><a href = '#'>글쓰기</a></li>
+                <li><a href = '#'>글목록</a></li>
+                <li><a href="#about_me">About Me</a></li>
               </ul>
           </nav>
           <header>
