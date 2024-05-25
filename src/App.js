@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 import Portfolio from './Portfolio'; 
@@ -17,8 +17,25 @@ import WritePage from './WritingPage';
 import WritingListPage from './WritingListPage';
 import './nav.css';
 
+
+export const AppContext = createContext();
+
 function App() {
   const [book, setBook] = useState({});
+
+  {/*실습*/}
+  const [name, setName] = useState('');
+  function handleChange(e) {
+		setName(e.target.value);
+    console.log(name);
+  };
+
+
+  const screen_mode = {
+    dark_mode: true 
+  };
+
+  {/*실습끗*/}
 
   useEffect(() => {
     axios.get('https://openlibrary.org/works/OL27416W.json')
@@ -31,8 +48,11 @@ function App() {
   }, []);
 
   return (
+
+    <AppContext.Provider value = {screen_mode}>
     <Router>
       <div>
+
         <nav>
           <ul className="nav-links">
             <li>
@@ -87,14 +107,23 @@ function App() {
                 <Contacts src="./git_icon.png" alt="깃헙아이콘" contact="LYZACell" />
                 <Contacts src="./blog_icon.png" alt="블로그아이콘" contact="Stay with me: _ @Brillante" />
                 <br /><br /><br /><br />
+
+                <input
+                value = {name}
+                onChange = {handleChange}/>
+                <h2>{name}</h2>
+
+
               </main>
             </>
           } />
           <Route path="/writing" element={<WritePage />} />
           <Route path="/postlist" element={<WritingListPage />} />
         </Routes>
+        
       </div>
     </Router>
+    </AppContext.Provider>
   );
 }
 

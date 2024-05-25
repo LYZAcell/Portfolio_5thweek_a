@@ -1,5 +1,18 @@
+import { useContext } from "react";
+import { AppContext } from "./App";
+
 function Languages(){
+
+    const mode = useContext(AppContext)
+
     return(
+    <div>
+        {/*실습중*/}
+        {mode.dark_mode}
+
+        {/*실습끗*/}
+        
+
         <div className="central">
         <div className="text_box">
                 <br/><br/>
@@ -21,6 +34,7 @@ function Languages(){
                 </div>
 
 
+        </div>
         </div>
         </div>
     );
