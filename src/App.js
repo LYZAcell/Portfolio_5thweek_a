@@ -14,8 +14,9 @@ import Etc from './Etc';
 import Recommendation from './Recommendation.js';
 
 import WritePage from './WritingPage';
-import WritingListPage from './WritingListPage';
+import PostListPage from './PostListPage';
 import './nav.css';
+import { PostProvider } from "./PostContext.js";
 
 
 export const AppContext = createContext();
@@ -48,6 +49,7 @@ function App() {
   }, []);
 
   return (
+    <PostProvider>
 
     <AppContext.Provider value = {screen_mode}>
     <Router>
@@ -118,12 +120,13 @@ function App() {
             </>
           } />
           <Route path="/writing" element={<WritePage />} />
-          <Route path="/postlist" element={<WritingListPage />} />
+          <Route path="/postlist" element={<PostListPage />} />
         </Routes>
         
       </div>
     </Router>
     </AppContext.Provider>
+    </PostProvider>
   );
 }
 

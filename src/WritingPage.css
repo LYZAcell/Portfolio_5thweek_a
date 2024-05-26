@@ -1,12 +1,14 @@
+/* 제목란 */
 .input-field {
-    width: 100%;
-    padding: 10px;
+    width: 60%;
+    padding: 20px;
     margin: 10px 0;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4px;
     font-size: 16px;
     color: #333;
+    background-color: rgba(255, 255, 255, 0.911);
+    border-radius: 30px;
   }
   
   .input-field:focus {
@@ -14,3 +16,39 @@
     outline: none;
   }
   
+/*글쓰기란*/
+.textarea-filed {
+  width: 80%;
+  height: 500px;
+  padding: 20px;
+  margin: 20px 0px 0px 50px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  background-color: rgba(245, 245, 220, 0.699);
+  border-radius: 30px;
+}
+
+.textarea:focus {
+  border-color: #555;
+  outline: none;
+}
+
+/*제출버튼*/
+.submit_post_button {
+  background-color: #d8cb16d0;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 20px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+  margin: 15px 60px;
+}
+
+.submit_post_button:hover {
+  background-color: #9ed816ad;
+}

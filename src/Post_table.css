@@ -1,0 +1,36 @@
+table {
+    width: 80%;
+    border-collapse: collapse;
+  }
+  
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+thead {
+    background-color: #d16908a4;
+    color: rgb(255, 255, 255);
+  }
+  
+  
+th {
+    background-color: #1100006b;
+  }
+
+
+/* 짝수 행 */
+tr:nth-child(even) {
+    background-color: #e1e2a598;
+  }
+  
+/* 홀수 행 */
+tr:nth-child(odd) {
+    background-color: #e6a10cb2;
+  }
+  
+
+tr:hover {
+    background-color: hsla(115, 100%, 35%, 0.589);
+  }
+  
