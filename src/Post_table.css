@@ -1,11 +1,13 @@
 table {
     width: 80%;
+    margin: 0 auto;
     border-collapse: collapse;
   }
   
 th, td {
-    padding: 10px;
+    padding: 10px 10px;
     border: 1px solid #ddd;
+    text-align: center;
   }
 
 thead {
@@ -22,11 +24,15 @@ th {
 /* 짝수 행 */
 tr:nth-child(even) {
     background-color: #e1e2a598;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+
   }
   
 /* 홀수 행 */
 tr:nth-child(odd) {
     background-color: #e6a10cb2;
+    font-weight: 500;
   }
   
 

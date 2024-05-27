@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { usePostContext } from './PostContext';
+import "./PostDetail.css";
 
 const PostDetail = () => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ const PostDetail = () => {
   const navigate = useNavigate();
 
   if (!post) {
-    return <div>Post not found</div>;
+    return <div className = "Post-not-found">Sorry, We can't find your Post.</div>;
   }
 
   const handleDelete = () => {
@@ -18,11 +19,14 @@ const PostDetail = () => {
   };
 
   return (
-    <div>
-      <h2>{post.title}</h2>
-      <p>{post.content}</p>
-      <button onClick={() => navigate(`/edit/${post.id}`)}>Edit</button>
-      <button onClick={handleDelete}>Delete</button>
+    <div className="post-detail-container">
+      <h2 className="post-title">{post.title}</h2>
+      <div className="post-buttons">
+      <button className="edit-button" onClick={() => navigate(`/edit/${post.id}`)}>Edit</button>
+      <button className="delete-button"  onClick={handleDelete}>Delete</button>
+      </div>
+      <p className="post-content">{post.content}</p>
+
     </div>
   );
 };

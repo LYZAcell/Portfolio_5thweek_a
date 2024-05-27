@@ -1,0 +1,83 @@
+/* EditPost 컨테이너 스타일 */
+.edit-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(245, 245, 220, 0.699);
+  }
+  
+  /* 제목 스타일 */
+  .edit-post-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* 폼 스타일 */
+  .edit-post-form {
+    width: 100%;
+    height: 500px;
+    padding: 20px;
+  }
+  
+  /* 라벨 스타일 */
+  .edit-post-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* 입력 필드 스타일 */
+  .edit-post-form input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  
+
+
+  .edit-post-form textarea {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  
+  /* 버튼 스타일 */
+  .edit-post-button {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+  }
+  
+  .edit-post-button button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-post-button button:hover {
+    background-color: #45a049;
+  }
+  

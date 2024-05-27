@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { usePostContext } from './PostContext';
+import "./EditPost.css"
 
 const EditPost = () => {
   const { id } = useParams();
@@ -17,9 +18,9 @@ const EditPost = () => {
   };
 
   return (
-    <div>
-      <h2>Edit Post</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="edit-post-container">
+      <h2 className="edit-post-title">Edit Post</h2>
+      <form className="edit-post-form" onSubmit={handleSubmit}>
         <div>
           <label>Title</label>
           <input
@@ -37,7 +38,9 @@ const EditPost = () => {
             required
           />
         </div>
+        <div className="edit-post-button">
         <button type="submit">Save</button>
+        </div>
       </form>
     </div>
   );
