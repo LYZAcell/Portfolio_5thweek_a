@@ -21,6 +21,8 @@ import PostListTable from './PostListTable.js';
 import PostDetail from './PostDetail';
 import EditPost from './EditPost';
 
+import WriteIDPW from './IDPW.js';
+
 export const AppContext = createContext();
 
 function App() {
@@ -126,6 +128,7 @@ function App() {
           <Route path="/" element={<PostListTable />} />
           <Route path="/post/:id" element={<PostDetail />} />
           <Route path="/edit/:id" element={<EditPost />} />
+          <Route path = "/Login" element = {<WriteIDPW/>} />
         </Routes>
         
       </div>
