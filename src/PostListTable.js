@@ -2,9 +2,11 @@
 import React from 'react';
 import { usePostContext } from './PostContext';
 import "./Post_table.css"
+import { useNavigate } from 'react-router-dom';
 
 const PostListTable = () => {
   const { posts } = usePostContext();
+  const navigate = useNavigate();
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -19,7 +21,7 @@ const PostListTable = () => {
       </thead>
       <tbody>
         {posts.map((post, index) => (
-          <tr key={index}>
+           <tr key={index} onClick={() => navigate(`/post/${post.id}`)}>
             <td>{post.title}</td>
             <td>{post.content}</td>
             <td>{post.author}</td>

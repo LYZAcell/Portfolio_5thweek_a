@@ -17,7 +17,9 @@ import WritePage from './WritingPage';
 import PostListPage from './PostListPage';
 import './nav.css';
 import { PostProvider } from "./PostContext.js";
-
+import PostListTable from './PostListTable.js';
+import PostDetail from './PostDetail';
+import EditPost from './EditPost';
 
 export const AppContext = createContext();
 
@@ -121,6 +123,9 @@ function App() {
           } />
           <Route path="/writing" element={<WritePage />} />
           <Route path="/postlist" element={<PostListPage />} />
+          <Route path="/" element={<PostListTable />} />
+          <Route path="/post/:id" element={<PostDetail />} />
+          <Route path="/edit/:id" element={<EditPost />} />
         </Routes>
         
       </div>
