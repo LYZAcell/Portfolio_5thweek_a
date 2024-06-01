@@ -61,14 +61,18 @@ function App() {
 
         <nav>
           <ul className="nav-links">
-            <li>
-              <Link to="/" className="nav-link">Home</Link>
+          <li>
+              <Link to ="/Login" className = "nav-link">Login</Link>
             </li>
             <li>
               <Link to="/writing" className="nav-link">글쓰기</Link>
             </li>
             <li>
               <Link to="/postlist" className="nav-link">글목록</Link>
+            </li>
+
+            <li>
+              <Link to="/" className="nav-link">Home</Link>
             </li>
           </ul>
         </nav>
