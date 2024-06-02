@@ -22,6 +22,7 @@ import PostDetail from './PostDetail';
 import EditPost from './EditPost';
 
 import WriteIDPW from './IDPW.js';
+import Signup from './Signup';
 
 export const AppContext = createContext();
 
@@ -133,6 +134,7 @@ function App() {
           <Route path="/post/:id" element={<PostDetail />} />
           <Route path="/edit/:id" element={<EditPost />} />
           <Route path = "/Login" element = {<WriteIDPW/>} />
+          <Route path = "/signup" element = {<Signup/>}/>
         </Routes>
         
       </div>
