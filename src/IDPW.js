@@ -1,9 +1,14 @@
 import styled from "styled-components";
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 import { apiCall } from "./server";
 import axios from "axios";
+import { AuthContext } from "./store/AuthContext";
+//import { useStore } from "zustand";
+// 기본 내보내기
+import useStore from './store/store';
+
 
 
 const Inputwrapper = styled.div`
@@ -70,6 +75,10 @@ const WriteIDPW = () => {
   const [pw, setPW] = useState("");
   const navigate = useNavigate();
   const [cookies, setCookie] = useCookies();
+  
+  //const {isLogin, setIsLogin} = useContext(AuthContext);
+  //const {setIsLogin} = useContext(AuthContext);
+
 
   const handleIDChange = (e) => {
     setID(e.target.value);
@@ -79,17 +88,27 @@ const WriteIDPW = () => {
     setPW(e.target.value);
   };
 
+  const isLogin = useStore((state) => state.isLogin)
+
   const handleLogin = async () => {
     try {
       const response = await apiCall.post("/dj/login/", {
         username: id,
         password: pw,
       });
+      // 헤더에 토큰 보내기? 
+      axios.defaults.headers.common['Authorization'] = `Bearer{response.data.accessToken}`
     // 로그인이 성공한 경우에만 팝업을 띄웁니다.
     alert("로그인 되었습니다!");
       console.log(response.data);
       sessionStorage.setItem("token", response.data.token);
       setCookie("token", response.data.token);
+      isLogin(true)
+      console.log("로그인 완료성공");
+      console.log(isLogin);
+      navigate('/')
+      
+      return response.data;
     } catch (error) {
       alert("로그인에 실패하였습니다. 다시 시도해주세요.");
       console.error(error);
