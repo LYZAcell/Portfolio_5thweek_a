@@ -114,7 +114,7 @@ function App() {
                 <br /><br /><br /><br />
 
                 <Whitebox id="contact" txt="Contact" />
-                <Contacts src="./mail icon.png" alt="메일아이콘" contact="applelgy@naver.com" />
+                <Contacts src="./mail icon.png" alt="이메일아이콘" contact="applelgy@naver.com" />
                 <Contacts src="./git_icon.png" alt="깃헙아이콘" contact="LYZACell" />
                 <Contacts src="./blog_icon.png" alt="블로그아이콘" contact="Stay with me: _ @Brillante" />
                 <br /><br /><br /><br />
