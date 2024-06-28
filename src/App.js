@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext, useCallback } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 import Portfolio from './Portfolio'; 
@@ -23,18 +23,11 @@ import EditPost from './EditPost';
 
 import WriteIDPW from './IDPW.js';
 import Signup from './Signup';
-import { AuthContext } from "./store/AuthContext.js";
 
 export const AppContext = createContext();
 
-
 function App() {
   const [book, setBook] = useState({});
-  const [isLogin, setIsLogin] = useState(false);
-
-const onLogOut = useCallback(() => {
-  setIsLogin(false)
-},[])
 
   {/*실습*/}
   const [name, setName] = useState('');
@@ -59,21 +52,17 @@ const onLogOut = useCallback(() => {
       });
   }, []);
 
-
-
   return (
     <PostProvider>
-      <AuthContext.Provider value={{isLogin,setIsLogin}}>
       <AppContext.Provider value={screen_mode}>
         <Router>
           <div>
             <nav>
               <ul className="nav-links">
                 <li>
-                  {isLogin? <Link to="/Login" className="nav-link">Login</Link> : <Link to="/" className = "nav-link" onClick = {onLogOut}> Logout</Link>}
+                  <Link to="/Login" className="nav-link">Login</Link>
                 </li>
                 <li>
-                  
                   <Link to="/signup" className="nav-link">Signup</Link>
                 </li>
                 <li>
@@ -138,7 +127,6 @@ const onLogOut = useCallback(() => {
           </div>
         </Router>
       </AppContext.Provider>
-      </AuthContext.Provider>
     </PostProvider>
   );
 }
