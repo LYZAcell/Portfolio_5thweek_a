@@ -116,7 +116,11 @@ function App() {
                 <Whitebox id="contact" txt="Contact" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <Contacts src="./mail icon.png" alt="이메일아이콘" contact="applelgy@naver.com" />
+=======
+                <Contacts src="./mail icon.png" alt="메일아이콘" contact="applelgy@naver.com" />
+>>>>>>> parent of 970b927 (글목록 api 연결완료)
 =======
                 <Contacts src="./mail icon.png" alt="메일아이콘" contact="applelgy@naver.com" />
 >>>>>>> parent of 970b927 (글목록 api 연결완료)

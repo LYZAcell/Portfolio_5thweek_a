@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // PostContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
@@ -38,6 +37,13 @@ import React, { createContext, useState, useContext } from 'react';
 const PostContext = createContext();
 
 export const usePostContext = () => useContext(PostContext);
+=======
+import React, { createContext, useState, useContext } from 'react';
+
+const PostContext = createContext();
+
+export const usePostContext = () => useContext(PostContext);
+>>>>>>> parent of 970b927 (글목록 api 연결완료)
 
 export const PostProvider = ({ children }) => {
   const [posts, setPosts] = useState([
@@ -65,4 +71,3 @@ export const PostProvider = ({ children }) => {
     </PostContext.Provider>
   );
 };
->>>>>>> parent of 970b927 (글목록 api 연결완료)
