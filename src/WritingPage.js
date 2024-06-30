@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // axios 추가
+import axios from 'axios';
 import { usePostContext } from './PostContext';
+import { getCookie } from './Cookie';
 import './WritingPage.css';
 
 const WritingPage = () => {
@@ -18,20 +19,35 @@ const WritingPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const post = { title, body: content }; // 요청 형식에 맞게 body로 변경
+    const post = { title, body: content };
 
     try {
-      const response = await axios.post('https://hufs-mutsa-12th.store/blog', post);
+      const token = getCookie('token'); // 쿠키에서 토큰 읽기
+      if (!token) {
+        throw new Error("토큰이 없습니다. 로그인 해주세요.");
+      }
+
+      console.log("요청에 사용될 토큰:", token);
+
+      const response = await axios.post('https://hufs-mutsa-12th.store/blog', post, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
       if (response.status === 200) {
         const savedPost = response.data;
         addPost(savedPost);
         setTitle('');
         setContent('');
         alert('글이 성공적으로 저장되었습니다.');
+      } else {
+        console.error('서버 응답이 성공적이지 않습니다.', response);
+        alert('글을 저장하는 데 실패하였습니다.');
       }
     } catch (error) {
-      console.error('글을 저장하는 데 실패하였습니다', error);
-      alert('글을 저장하는 데 실패하였습니다.');
+      console.error('글을 저장하는 데 실패하였습니다.', error);
+      alert('글을 저장하는 데 실패하였습니다. 다시 시도해주세요.');
     }
   };
 
@@ -49,7 +65,7 @@ const WritingPage = () => {
             onChange={handleTitleChange}
             required
             placeholder='#Write the Title'
-            className="input-field" // CSS 꾸미기
+            className="input-field"
           />
         </div>
         <br />

@@ -2,9 +2,7 @@ import styled from "styled-components";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from "react-cookie";
-import { apiCall } from "./server";
 import axios from "axios";
-
 
 const Inputwrapper = styled.div`
   height: 100vh;
@@ -69,7 +67,7 @@ const WriteIDPW = () => {
   const [id, setID] = useState("");
   const [pw, setPW] = useState("");
   const navigate = useNavigate();
-  const [cookies, setCookie] = useCookies();
+  const [cookies, setCookie] = useCookies(['access']); // access 토큰을 명시적으로 지정
 
   const handleIDChange = (e) => {
     setID(e.target.value);
@@ -81,18 +79,26 @@ const WriteIDPW = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await apiCall.post("/dj/login/", {
+      const response = await axios.post("https://hufs-mutsa-12th.store/dj/login/", {
         username: id,
         password: pw,
       });
-    // 로그인이 성공한 경우에만 팝업을 띄웁니다.
-    alert("로그인 되었습니다!");
-      console.log(response.data);
-      sessionStorage.setItem("token", response.data.token);
-      setCookie("token", response.data.token);
+
+      if (response.status === 200) {
+        const accessToken = response.data.access;
+        console.log("서버에서 받은 access 토큰:", accessToken);
+        
+        // access 토큰을 쿠키에 저장
+        setCookie("access", accessToken, { path: '/', maxAge: 3600 });
+
+        alert("로그인 되었습니다!");
+        navigate('/');
+      } else {
+        throw new Error("로그인 요청이 실패하였습니다.");
+      }
     } catch (error) {
+      console.error("로그인에 실패하였습니다.", error);
       alert("로그인에 실패하였습니다. 다시 시도해주세요.");
-      console.error(error);
     }
   };
 
@@ -100,15 +106,13 @@ const WriteIDPW = () => {
     navigate("/signup");
   };
 
-  console.log(sessionStorage.getItem("token"));
-
   return (
     <Inputwrapper>
       <h1>LOGIN</h1>
       <h2>ID</h2>
-      <Inputstyledwrapper onChange={handleIDChange} />
+      <Inputstyledwrapper value={id} onChange={handleIDChange} />
       <h2>PW</h2>
-      <Inputstyledwrapper type="password" onChange={handlePWChange} />
+      <Inputstyledwrapper type="password" value={pw} onChange={handlePWChange} />
       <br />
       <Buttonwrapper onClick={handleLogin}>Login</Buttonwrapper>
       <SignupLink onClick={handleSignupRedirect}>이 페이지가 처음이신가요?</SignupLink>
