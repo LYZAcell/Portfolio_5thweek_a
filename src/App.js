@@ -71,6 +71,9 @@ function App() {
             <li>
               <Link to="/postlist" className="nav-link">글목록</Link>
             </li>
+            <li>
+              <Link to = "signup" className = "nav-link">Signup</Link>
+            </li>
 
             <li>
               <Link to="/" className="nav-link">Home</Link>
